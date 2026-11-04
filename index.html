@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090b18">
+<meta name="description" content="Enter the Shielded Naka Arcade. Discover, play and compete across the Naka game universe.">
+<title>Shielded Naka Arcade — Play. Collect. Compete.</title>
+<style>
+:root{--bg:#090b18;--panel:#11152a;--panel2:#171d36;--line:#2b3151;--text:#f7f8ff;--muted:#a4abc7;--purple:#9566ff;--pink:#ff62c5;--cyan:#4de2ff;--gold:#ffd65a;--green:#63e6b2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#30216c 0,transparent 42%),radial-gradient(ellipse at 100% 40%,#092e4a 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}button,input{font:inherit}.shell{width:min(1240px,92%);margin:auto}
+header{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #ffffff12}
+.brand{display:flex;align-items:center;gap:11px;font-weight:1000;letter-spacing:-.6px}.brand img{width:44px;height:44px;border-radius:13px;object-fit:cover;border:1px solid #ffffff55}.brand-name{font-size:18px;line-height:1}.brand-name small{display:block;font-size:9px;letter-spacing:3px;color:var(--cyan);margin-top:5px}
+nav{display:flex;align-items:center;gap:24px;color:#c3c8df;font-size:13px;font-weight:750}nav a:hover{color:white}.social-link{color:#fff;background:#211a46;border:1px solid #5b4b91;padding:8px 10px;border-radius:9px;font-size:11px;font-weight:850}
+.header-right{display:flex;align-items:center;gap:10px}.status{border:1px solid #355b57;color:#8cf2c8;background:#102c2a;padding:7px 11px;border-radius:99px;font-size:11px;font-weight:850}
+.hero{position:relative;margin:28px 0 32px;min-height:310px;border:1px solid #a477ff55;border-radius:26px;overflow:hidden;background:linear-gradient(110deg,#21134f 0%,#22225e 50%,#073e59 100%);box-shadow:0 18px 60px #0005}
+.hero:before{content:"";position:absolute;width:520px;height:520px;right:-110px;top:-210px;border-radius:50%;background:radial-gradient(circle,#36cfff33,transparent 68%)}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,var(--purple),var(--pink),var(--cyan))}
+.hero-copy{position:relative;z-index:2;padding:48px 5%;max-width:690px}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:#d9caff;font-size:11px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}
+h1{font-size:clamp(38px,6vw,66px);line-height:.98;letter-spacing:-3px;margin:18px 0 14px;font-weight:1000}.gradient{background:linear-gradient(90deg,#fff,var(--cyan),#d4a7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:520px;color:#c4c9e3;line-height:1.65;font-size:15px;margin:0 0 24px}
+.actions{display:flex;gap:11px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;font-size:13px;font-weight:900;border:1px solid #ffffff28}.btn.primary{background:linear-gradient(100deg,#8b5cff,#c34cff);box-shadow:0 7px 22px #9b4cff55}.btn.secondary{background:#ffffff0d;color:#f4f3ff}.btn:hover{transform:translateY(-2px)}
+.hero-mascot{position:absolute;right:5%;bottom:-28px;width:min(36%,390px);height:330px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 12px 22px #0008)}
+.stats{display:flex;gap:25px;margin-top:25px;color:#abb3d0;font-size:11px;font-weight:700}.stats b{color:white;font-size:15px;margin-right:4px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:36px 0 17px}.section-head h2{font-size:24px;letter-spacing:-.7px;margin:0}.section-head p{font-size:12px;color:var(--muted);margin:6px 0 0}.view-all{font-size:12px;color:var(--cyan);font-weight:850}
+.toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+.filters{display:flex;gap:7px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:#12172b;color:#b9c0dc;padding:9px 13px;border-radius:10px;font-size:12px;font-weight:800;cursor:pointer}.filter.active,.filter:hover{color:#fff;border-color:#8d69ff;background:#38246c;box-shadow:inset 0 0 0 1px #8d69ff44}
+.search-wrap{position:relative;min-width:220px;flex:0 1 290px}.search-wrap span{position:absolute;left:13px;top:10px;color:#7f89aa}.search{width:100%;padding:10px 13px 10px 36px;border:1px solid var(--line);border-radius:10px;background:#11162a;color:white;outline:none;font-size:12px}.search:focus{border-color:var(--purple)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.card{min-width:0;overflow:hidden;border:1px solid #303653;border-radius:17px;background:linear-gradient(180deg,#171c33,#101426);transition:.22s;position:relative}
+.card:hover{transform:translateY(-5px);border-color:#a16cff;box-shadow:0 14px 32px #0007,0 0 20px #8b5cff24}
+.cover{display:block;position:relative;aspect-ratio:1.55;overflow:hidden;background:#191d3a}.cover img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .35s}.card:hover .cover img{transform:scale(1.055)}
+.tag{position:absolute;top:10px;left:10px;padding:5px 8px;border-radius:7px;background:#090b18d9;border:1px solid #ffffff2b;color:#e8e4ff;font-size:9px;font-weight:900;letter-spacing:.7px;text-transform:uppercase}
+.card-info{padding:13px}.card-title{font-size:14px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card-desc{font-size:11px;line-height:1.45;color:#929bb9;min-height:32px;margin:6px 0 12px}
+.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.platform{font-size:10px;color:#8e98b7;font-weight:750}.play{padding:8px 11px;border-radius:9px;background:linear-gradient(100deg,#8355f4,#b14bfa);color:white;font-size:10px;font-weight:950;white-space:nowrap}.play:hover{filter:brightness(1.15)}
+.empty{display:none;padding:38px;text-align:center;border:1px dashed #454d70;border-radius:15px;color:#aeb5d0}
+.community{margin:42px 0 28px;padding:24px;border:1px solid #51418c;border-radius:18px;background:linear-gradient(100deg,#1d1744,#122b45);display:flex;justify-content:space-between;align-items:center;gap:15px}.community h3{margin:0 0 5px;font-size:18px}.community p{margin:0;color:#aeb8d6;font-size:12px}.community .spark{font-size:36px}
+footer{border-top:1px solid #ffffff13;padding:22px 0 30px;color:#737e9e;font-size:11px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}footer b{color:#c6cbea}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-mascot{right:1%;opacity:.78;width:38%}nav{gap:13px}}
+@media(max-width:650px){.shell{width:93%}header{height:66px}.brand img{width:38px;height:38px}.brand-name{font-size:15px}nav{display:none}.status{font-size:10px}.hero{min-height:300px;margin-top:18px}.hero-copy{padding:33px 23px;max-width:100%}.hero h1{font-size:44px;max-width:360px}.hero p{font-size:13px;max-width:340px}.hero-mascot{width:43%;height:190px;right:-1%;bottom:-12px;opacity:.55}.stats{gap:14px}.section-head h2{font-size:21px}.toolbar{align-items:stretch}.filters{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:5px}.filter{white-space:nowrap}.search-wrap{flex:1 1 100%}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.card{border-radius:13px}.card-info{padding:10px}.card-title{font-size:12px}.card-desc{font-size:10px;min-height:42px}.play{font-size:9px;padding:7px 8px}.community{padding:18px}.community h3{font-size:16px}}
+
+.home-video{margin:22px 0 28px;border:1px solid #6e63ad;border-radius:20px;overflow:hidden;background:#050711;box-shadow:0 18px 50px #0008,0 0 24px #7d4cff22}
+.home-video video{display:block;width:100%;aspect-ratio:16/9;max-height:460px;object-fit:cover;background:#050711}
+.home-video-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:linear-gradient(90deg,#171333,#101b32);color:#c6cbe4;font-size:11px;font-weight:800;letter-spacing:.4px}
+.home-video-caption strong{color:#fff}
+@media(max-width:650px){.home-video{margin:14px 0 20px;border-radius:14px}.home-video video{max-height:none}.home-video-caption{padding:9px 11px;font-size:10px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header>
+ <a class="brand" href="#"><img src="assets/naka-mascot.jpg" alt="Shielded Naka mascot"><span class="brand-name">SHIELDED NAKA<small>ARCADE</small></span></a>
+ <nav><a href="#">Home</a><a href="#games">Games</a><a href="#community">Community</a><a href="https://x.com/satoshijex" target="_blank" rel="noopener noreferrer">𝕏 @satoshijex</a></nav>
+ <div class="header-right"><span class="status">● ARCADE LIVE</span></div>
+</header>
+
+<section class="home-video" aria-label="Shielded Naka gameplay showreel">
+ <video autoplay muted loop playsinline controls preload="metadata" poster="assets/shielded-car-race.jpg"><source src="assets/shielded-naka-homepage.mp4" type="video/mp4">
+  Your browser does not support HTML video.
+ </video>
+ <div class="home-video-caption"><strong>▶ SHIELDED NAKA GAMEPLAY SHOWREEL</strong><span>PLAY • COLLECT • COMPETE</span></div>
+</section>
+
+<section class="hero">
+ <div class="hero-copy">
+  <div class="kicker"><span class="dot"></span> THE NAKA GAMING UNIVERSE</div>
+  <h1>PLAY. <span class="gradient">COLLECT.</span><br>COMPETE.</h1>
+  <p>Welcome to Shielded Naka Arcade. Discover community games, jump into new challenges and chase your next high score — all in one place.</p>
+  <div class="actions"><a class="btn primary" href="#games">Explore games <span>↗</span></a><a class="btn secondary" href="#community">About the arcade</a><a class="btn secondary" href="https://x.com/satoshijex" target="_blank" rel="noopener noreferrer">𝕏 Follow @satoshijex</a></div>
+  <div class="stats"><span><b id="gameCount">8</b> GAMES</span><span><b>∞</b> MORE TO COME</span><span><b>100%</b> PLAY</span></div>
+ </div>
+ <img class="hero-mascot" src="assets/naka-mascot.jpg" alt="Naka character">
+</section>
+<section id="games">
+ <div class="section-head"><div><h2>Explore the games</h2><p>Choose your next adventure from the Naka universe.</p></div><a class="view-all" href="#games">GAME LIBRARY ↗</a></div>
+ <div class="toolbar">
+  <div class="filters">
+   <button class="filter active" data-filter="all">All games</button><button class="filter" data-filter="arcade">Arcade</button><button class="filter" data-filter="racing">Racing</button><button class="filter" data-filter="action">Action</button><button class="filter" data-filter="collect">Collect</button>
+  </div>
+  <label class="search-wrap"><span>⌕</span><input class="search" id="search" type="search" placeholder="Search games..." aria-label="Search games"></label>
+ </div>
+ <div class="grid" id="grid"></div>
+ <div class="empty" id="empty">No games match your search. Try another name or category.</div>
+</section>
+<section class="community" id="community"><div><h3>The Naka universe keeps growing. ✨</h3><p>New games and challenges will be added here. Check back for the next adventure.</p></div><div class="spark">🕹️</div></section>
+<footer><span>© <span id="year"></span> <b>Shielded Naka Arcade</b></span><span>Made for the community · Play fair, have fun.</span></footer>
+</div>
+<script>
+/* ADD FUTURE GAMES: copy one object below, change its details and add its cover image to /assets.
+   There is no fixed game limit. */
+const games = [
+ {name:"Shielded Crush Saga",category:"arcade",description:"Match, crush and create powerful combos.",image:"assets/shielded-crush-saga.jpg",url:"https://shieldedcrushsaga.vercel.app/"},
+ {name:"Naka Sky Hop",category:"arcade",description:"Jump higher, collect gems and beat your best.",image:"assets/naka-sky-hop.jpg",url:"https://nakaskyhop.vercel.app/"},
+ {name:"Shielded Car Race",category:"racing",description:"Hit the track and race for the best score.",image:"assets/shielded-car-race.jpg",url:"https://shieldedcarrace.vercel.app/"},
+ {name:"Naka Forest Run",category:"action",description:"Run through the forest and dodge obstacles.",image:"assets/naka-forest-run.jpg",url:"https://nakarun.vercel.app/"},
+ {name:"Shielded Bike Race",category:"racing",description:"Take your bike to the road and race.",image:"assets/shielded-bike-race.jpg",url:"https://shielded-race.vercel.app/"},
+ {name:"Naka Hill Rush",category:"racing",description:"Climb the hills and keep your ride moving.",image:"assets/naka-hill-rush.jpg",url:"https://nakahillrush.vercel.app/"},
+ {name:"Naka Shooting",category:"action",description:"Take aim and test your reflexes.",image:"assets/naka-shooting.jpg",url:"https://solemn-nakasolemn.vercel.app/"},
+ {name:"Naka Coin Collector",category:"collect",description:"Collect commemorative coins and build your score.",image:"assets/naka-coin-collector.jpg",url:"https://shieldednaka.vercel.app/"}
+];
+const grid=document.getElementById("grid"),search=document.getElementById("search"),empty=document.getElementById("empty"),filters=[...document.querySelectorAll(".filter")];
+let active="all";
+function render(){
+ const q=search.value.trim().toLowerCase();
+ const visible=games.filter(g=>(active==="all"||g.category===active)&&(g.name+" "+g.description).toLowerCase().includes(q));
+ grid.innerHTML=visible.map(g=>`<article class="card">
+  <a class="cover" href="${g.url}" target="_blank" rel="noopener noreferrer" aria-label="Play ${g.name}">
+   <img src="${g.image}" alt="${g.name} game cover" loading="lazy"><span class="tag">${g.category}</span>
+  </a>
+  <div class="card-info"><div class="card-title">${g.name}</div><div class="card-desc">${g.description}</div>
+   <div class="card-bottom"><span class="platform">WEB GAME</span><a class="play" href="${g.url}" target="_blank" rel="noopener noreferrer">PLAY NOW ↗</a></div>
+  </div></article>`).join("");
+ empty.style.display=visible.length?"none":"block";
+ document.getElementById("gameCount").textContent=games.length;
+}
+filters.forEach(b=>b.addEventListener("click",()=>{active=b.dataset.filter;filters.forEach(x=>x.classList.toggle("active",x===b));render()}));
+// Desktop: preview on hover. Touch devices: tap the small preview control.
+function attachPreviews(){
+ document.querySelectorAll(".card").forEach(card=>{
+  const video=card.querySelector("video");
+  if(!video)return;
+  const start=()=>{card.classList.add("previewing");video.play().catch(()=>{});};
+  const stop=()=>{video.pause();video.currentTime=0;card.classList.remove("previewing");};
+  card.addEventListener("mouseenter",start);
+  card.addEventListener("mouseleave",stop);
+  card.addEventListener("focusin",start);
+  card.addEventListener("focusout",stop);
+ });
+}
+
+search.addEventListener("input",render);
+document.getElementById("year").textContent=new Date().getFullYear();
+render();
+</script>
+</body></html>
